@@ -835,7 +835,7 @@
         });
       }
       clearInterval(timer);
-      launchFireworksCelebration();
+      if (typeof launchFireworksCelebration === 'function') { launchFireworksCelebration(); }
       return;
     }
 
