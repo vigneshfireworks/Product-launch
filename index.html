@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinks Crackers — Light Up Joy! Launching Soon</title>
+<meta name="description" content="Vinks Crackers is launching today at 7 PM. Premium Diwali crackers, best prices, fast delivery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon-950:#0e0403;
+    --maroon-900:#1a0806;
+    --maroon-800:#2a0f0c;
+    --maroon-700:#3d1512;
+    --gold:#e8c15a;
+    --gold-bright:#ffd76b;
+    --gold-dim:#b8912f;
+    --cream:#f4ead9;
+    --cream-dim:#cfc0a6;
+    --ember:#c0392b;
+    --ember-bright:#e0563f;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--maroon-950);
+    color:var(--cream);
+    font-family:'Poppins', sans-serif;
+    overflow-x:hidden;
+    line-height:1.6;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Cinzel', serif;
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  button{font-family:inherit; cursor:pointer;}
+
+  ::selection{background:var(--gold); color:var(--maroon-950);}
+
+  /* ---------- background texture ---------- */
+  .bg-glow{
+    position:fixed; inset:0; z-index:-2;
+    background:
+      radial-gradient(ellipse 900px 600px at 20% -10%, rgba(224,86,63,0.16), transparent 60%),
+      radial-gradient(ellipse 900px 700px at 85% 15%, rgba(232,193,90,0.10), transparent 60%),
+      radial-gradient(ellipse 1200px 900px at 50% 100%, rgba(61,21,18,0.5), transparent 70%),
+      var(--maroon-950);
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 6vw;
+    background:rgba(14,4,3,0.72);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(232,193,90,0.15);
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand img{height:38px; width:auto;}
+  .brand span{font-family:'Cinzel', serif; font-size:15px; letter-spacing:0.06em; color:var(--gold);}
+  .header-cta{
+    border:1px solid var(--gold-dim);
+    color:var(--gold);
+    padding:8px 18px;
+    border-radius:999px;
+    font-size:13px;
+    transition:all .25s ease;
+  }
+  .header-cta:hover{background:var(--gold); color:var(--maroon-950); border-color:var(--gold);}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:120px 6vw 80px;
+    overflow:hidden;
+  }
+  #fireworks-canvas{
+    position:absolute; inset:0; width:100%; height:100%; z-index:0;
+    pointer-events:none;
+  }
+  .hero-inner{position:relative; z-index:2; max-width:760px; display:flex; flex-direction:column; align-items:center;}
+
+  .hero-logo{
+    width:min(300px, 62vw);
+    filter:drop-shadow(0 10px 40px rgba(224,86,63,0.35));
+    animation:floatLogo 5s ease-in-out infinite;
+    margin-bottom:6px;
+  }
+  @keyframes floatLogo{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+  }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; color:var(--cream-dim);
+    border:1px solid rgba(232,193,90,0.3);
+    padding:6px 16px; border-radius:999px;
+    margin-bottom:26px;
+    background:rgba(232,193,90,0.06);
+  }
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--ember-bright); box-shadow:0 0 10px var(--ember-bright); animation:pulseDot 1.6s ease-in-out infinite;}
+  @keyframes pulseDot{0%,100%{opacity:1; transform:scale(1);} 50%{opacity:.4; transform:scale(0.7);}}
+
+  .hero h1{
+    font-size:clamp(30px, 5vw, 50px);
+    color:var(--cream);
+    margin-bottom:14px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(90deg, var(--gold-bright), var(--gold-dim));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p.lede{
+    font-size:16px; color:var(--cream-dim); max-width:500px; margin-bottom:44px;
+  }
+
+  /* countdown */
+  .countdown{
+    display:flex; gap:14px; margin-bottom:20px; flex-wrap:wrap; justify-content:center;
+  }
+  .cd-box{
+    width:82px; height:92px;
+    background:linear-gradient(160deg, var(--maroon-800), var(--maroon-900));
+    border:1px solid rgba(232,193,90,0.28);
+    border-radius:14px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    box-shadow:0 12px 30px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
+    position:relative;
+  }
+  .cd-box .num{
+    font-family:'Cinzel', serif; font-weight:700;
+    font-size:32px; color:var(--gold-bright);
+    text-shadow:0 0 18px rgba(255,215,107,0.35);
+    font-variant-numeric:tabular-nums;
+  }
+  .cd-box .lbl{font-size:11px; color:var(--cream-dim); margin-top:4px;}
+  .cd-sep{
+    display:flex; align-items:center; font-family:'Cinzel',serif;
+    font-size:26px; color:var(--gold-dim); padding-bottom:20px;
+  }
+
+  .launch-note{font-size:13.5px; color:var(--cream-dim);}
+  .launch-note strong{color:var(--gold);}
+
+  .live-banner{
+    display:none;
+    margin-top:6px;
+    padding:16px 30px;
+    border-radius:14px;
+    background:linear-gradient(120deg, rgba(232,193,90,0.16), rgba(224,86,63,0.16));
+    border:1px solid rgba(232,193,90,0.4);
+    font-family:'Cinzel', serif; color:var(--gold-bright);
+    font-size:18px; letter-spacing:0.02em;
+  }
+
+  /* ---------- section shell ---------- */
+  section{padding:90px 6vw;}
+  .section-head{text-align:center; max-width:620px; margin:0 auto 48px;}
+  .section-head h2{font-size:clamp(24px,3.4vw,34px); color:var(--cream); margin-bottom:12px;}
+  .section-head p{color:var(--cream-dim); font-size:15px;}
+
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- quotes ---------- */
+  .quotes-wrap{
+    max-width:680px; margin:0 auto;
+    min-height:150px;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    position:relative;
+  }
+  .quote-slide{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    opacity:0; transition:opacity 0.9s ease;
+  }
+  .quote-slide.active{opacity:1; position:relative;}
+  .quote-slide p{
+    font-family:'Cinzel', serif; font-style:normal; font-weight:500;
+    font-size:clamp(18px,2.6vw,25px); color:var(--cream);
+    line-height:1.55;
+  }
+  .quote-slide span{display:block; margin-top:14px; font-size:13px; color:var(--gold-dim); font-family:'Poppins',sans-serif;}
+  .quote-dots{display:flex; gap:8px; justify-content:center; margin-top:34px;}
+  .quote-dots i{
+    width:7px; height:7px; border-radius:50%; background:rgba(232,193,90,0.25);
+    transition:background .3s ease, transform .3s ease;
+  }
+  .quote-dots i.active{background:var(--gold); transform:scale(1.25);}
+
+  /* ---------- video ---------- */
+  .video-section{background:linear-gradient(180deg, transparent, rgba(0,0,0,0.25) 20%, rgba(0,0,0,0.25) 80%, transparent);}
+  .video-frame{
+    position:relative;
+    width:min(300px, 78vw);
+    margin:0 auto;
+    border-radius:26px;
+    overflow:hidden;
+    border:1px solid rgba(232,193,90,0.3);
+    box-shadow:0 30px 70px rgba(0,0,0,0.55);
+    background:#000;
+  }
+  .video-frame video{width:100%; display:block; aspect-ratio:9/16; object-fit:cover;}
+  .video-controls{
+    position:absolute; bottom:14px; right:14px; z-index:3;
+    display:flex; gap:8px;
+  }
+  .vid-btn{
+    width:42px; height:42px; border-radius:50%;
+    background:rgba(14,4,3,0.55);
+    border:1px solid rgba(232,193,90,0.4);
+    backdrop-filter:blur(6px);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold-bright); font-size:16px;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .vid-btn:hover{transform:scale(1.08); background:rgba(232,193,90,0.18);}
+
+  /* ---------- download / flyer ---------- */
+  .flyer-card{
+    max-width:760px; margin:0 auto;
+    display:grid; grid-template-columns:1fr 1.15fr; gap:0;
+    background:linear-gradient(160deg, var(--maroon-800), var(--maroon-900));
+    border:1px solid rgba(232,193,90,0.22);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 24px 60px rgba(0,0,0,0.45);
+  }
+  .flyer-qr{
+    background:var(--cream);
+    display:flex; align-items:center; justify-content:center;
+    padding:26px;
+  }
+  .flyer-qr img{width:100%; max-width:220px; border-radius:10px;}
+  .flyer-info{padding:38px 34px; display:flex; flex-direction:column; justify-content:center; gap:14px;}
+  .flyer-info h3{font-size:22px; color:var(--cream);}
+  .flyer-info p{color:var(--cream-dim); font-size:14px;}
+  .btn-gold{
+    display:inline-flex; align-items:center; gap:10px; justify-content:center;
+    background:linear-gradient(120deg, var(--gold-bright), var(--gold-dim));
+    color:var(--maroon-950); font-weight:600; font-size:14.5px;
+    padding:13px 24px; border-radius:999px; border:none;
+    width:fit-content;
+    box-shadow:0 10px 26px rgba(232,193,90,0.25);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-gold:hover{transform:translateY(-2px); box-shadow:0 14px 32px rgba(232,193,90,0.35);}
+
+  @media (max-width:640px){
+    .flyer-card{grid-template-columns:1fr;}
+  }
+
+  /* ---------- connect / social ---------- */
+  .connect-grid{
+    max-width:720px; margin:0 auto;
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;
+  }
+  .connect-card{
+    background:rgba(244,234,217,0.03);
+    border:1px solid rgba(232,193,90,0.18);
+    border-radius:18px;
+    padding:26px 18px;
+    text-align:center;
+    transition:transform .25s ease, border-color .25s ease, background .25s ease;
+  }
+  .connect-card:hover{transform:translateY(-6px); border-color:rgba(232,193,90,0.5); background:rgba(232,193,90,0.06);}
+  .connect-icon{
+    width:52px; height:52px; border-radius:50%;
+    margin:0 auto 14px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px;
+    background:linear-gradient(140deg, rgba(232,193,90,0.18), rgba(224,86,63,0.18));
+    color:var(--gold-bright);
+  }
+  .connect-card h4{font-size:14.5px; color:var(--cream); margin-bottom:4px; font-weight:500;}
+  .connect-card p{font-size:12.5px; color:var(--cream-dim);}
+
+  @media (max-width:640px){
+    .connect-grid{grid-template-columns:1fr; max-width:340px;}
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:36px 6vw 30px;
+    text-align:center;
+    border-top:1px solid rgba(232,193,90,0.14);
+  }
+  footer .fbrand{font-family:'Cinzel', serif; color:var(--gold); font-size:15px; margin-bottom:6px;}
+  footer p{font-size:12.5px; color:var(--cream-dim);}
+
+  /* ---------- sparkle particles (ambient) ---------- */
+  .sparkle{
+    position:absolute; border-radius:50%;
+    background:var(--gold-bright);
+    opacity:0; pointer-events:none;
+    animation:sparkleUp linear infinite;
+  }
+  @keyframes sparkleUp{
+    0%{opacity:0; transform:translateY(0) scale(0.4);}
+    10%{opacity:.9;}
+    90%{opacity:.5;}
+    100%{opacity:0; transform:translateY(-140px) scale(1);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+
+<header>
+  <div class="brand">
+    <img src="assets/logo.png" alt="Vinks Crackers logo">
+  </div>
+  <a href="#connect" class="header-cta">Get notified</a>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <img class="hero-logo" src="assets/logo.png" alt="Vinks Crackers — Light Up Joy!">
+
+    <div class="eyebrow"><span class="dot"></span> Launching today at 7:00 PM</div>
+
+    <h1>The wait is almost over —<br><em>Light Up Joy!</em></h1>
+    <p class="lede">Premium Diwali crackers, honest prices and fast delivery — vinkscrackers.com goes live in just a bit. Set your reminder and be first in.</p>
+
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="cd-box"><span class="num" id="cd-days">00</span><span class="lbl">Days</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box"><span class="num" id="cd-hours">00</span><span class="lbl">Hours</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box"><span class="num" id="cd-mins">00</span><span class="lbl">Minutes</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-box"><span class="num" id="cd-secs">00</span><span class="lbl">Seconds</span></div>
+    </div>
+
+    <p class="launch-note" id="launch-note">Launch time: <strong>7:00 PM, today</strong> · Mark your calendar and grab early offers</p>
+    <div class="live-banner" id="live-banner">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-3px; margin-right:6px;"><path d="M12 2l1.6 5.4L19 9l-5.4 1.6L12 16l-1.6-5.4L5 9l5.4-1.6L12 2Z"/><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14Z"/></svg>
+      We're live — welcome to Vinks Crackers!
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTES ============ -->
+<section>
+  <div class="section-head reveal">
+    <h2>A little light before the big light-up</h2>
+    <p>Some warmth for the wait, from us to you.</p>
+  </div>
+  <div class="quotes-wrap reveal">
+    <div class="quote-slide active">
+      <p>“Darkness cannot drive out darkness; only light can do that.”</p>
+      <span>— on the true spirit of Diwali</span>
+    </div>
+    <div class="quote-slide">
+      <p>“A single cracker's spark can light up a thousand smiles.”</p>
+      <span>— Vinks Crackers</span>
+    </div>
+    <div class="quote-slide">
+      <p>“Diwali isn't a day — it's a feeling that comes home once a year.”</p>
+      <span>— festival wisdom</span>
+    </div>
+    <div class="quote-slide">
+      <p>“Every sparkler you light is a little rebellion against the dark.”</p>
+      <span>— Vinks Crackers</span>
+    </div>
+    <div class="quote-slide">
+      <p>“Joy shared with family is the brightest firework of all.”</p>
+      <span>— festival wisdom</span>
+    </div>
+    <div class="quote-slide">
+      <p>“May your celebrations be loud, your sweets be plenty, and your sky be golden.”</p>
+      <span>— Vinks Crackers</span>
+    </div>
+  </div>
+  <div class="quote-dots" id="quote-dots"></div>
+</section>
+
+<!-- ============ VIDEO ============ -->
+<section class="video-section">
+  <div class="section-head reveal">
+    <h2>Take a peek behind the sparks</h2>
+    <p>Tap the speaker icon to hear it — we kept it on mute so it plays nicely for everyone.</p>
+  </div>
+  <div class="video-frame reveal">
+    <video id="promo-video" playsinline autoplay muted loop preload="metadata">
+      <source src="assets/vinks-video.mp4" type="video/mp4">
+    </video>
+    <div class="video-controls">
+      <button class="vid-btn" id="mute-toggle" aria-label="Unmute video">
+        <svg id="mute-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="4,9 8,9 12,5 12,19 8,15 4,15" fill="currentColor" stroke="none"></polygon>
+          <line x1="16" y1="9" x2="21" y2="15"></line>
+          <line x1="21" y1="9" x2="16" y2="15"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLYER / QR ============ -->
+<section id="flyer">
+  <div class="section-head reveal">
+    <h2>Save it, share it, print it</h2>
+    <p>Grab our launch flyer — scan the code or download the PDF to keep handy.</p>
+  </div>
+  <div class="flyer-card reveal">
+    <div class="flyer-qr">
+      <img src="assets/qr.png" alt="Vinks Crackers QR code">
+    </div>
+    <div class="flyer-info">
+      <h3>Vinks Crackers — Light Up Joy!</h3>
+      <p>Scan the QR to jump straight to us once we're live, or download the printable flyer to share with family, friends and your neighbourhood group.</p>
+      <a class="btn-gold" href="assets/vinks-crackers-flyer.pdf" download>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 19h14"></path></svg>
+        Download flyer (PDF)
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONNECT ============ -->
+<section id="connect">
+  <div class="section-head reveal">
+    <h2>Let's stay in touch</h2>
+    <p>Questions, bulk orders or just excited for the launch — reach us here.</p>
+  </div>
+  <div class="connect-grid reveal">
+    <a class="connect-card" href="https://wa.me/917373872638" target="_blank" rel="noopener">
+      <div class="connect-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.28 2 11.6c0 2 .59 3.85 1.6 5.4L2 22l5.2-1.53A10.6 10.6 0 0 0 12 21.2c5.52 0 10-4.28 10-9.6S17.52 2 12 2Zm0 17.3c-1.63 0-3.15-.46-4.44-1.26l-.32-.19-3.09.91.9-2.97-.21-.31A7.94 7.94 0 0 1 3.9 11.6C3.9 7.35 7.53 3.9 12 3.9s8.1 3.45 8.1 7.7-3.63 7.7-8.1 7.7Z"/><path d="M16.1 13.4c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.47-.4-.4-.55-.41h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28Z"/></svg>
+      </div>
+      <h4>WhatsApp</h4>
+      <p>+91 73738 72638</p>
+    </a>
+    <a class="connect-card" href="https://wa.me/919751005307" target="_blank" rel="noopener">
+      <div class="connect-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.28 2 11.6c0 2 .59 3.85 1.6 5.4L2 22l5.2-1.53A10.6 10.6 0 0 0 12 21.2c5.52 0 10-4.28 10-9.6S17.52 2 12 2Zm0 17.3c-1.63 0-3.15-.46-4.44-1.26l-.32-.19-3.09.91.9-2.97-.21-.31A7.94 7.94 0 0 1 3.9 11.6C3.9 7.35 7.53 3.9 12 3.9s8.1 3.45 8.1 7.7-3.63 7.7-8.1 7.7Z"/><path d="M16.1 13.4c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.95-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.8-.2-.47-.4-.4-.55-.41h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28Z"/></svg>
+      </div>
+      <h4>WhatsApp</h4>
+      <p>+91 97510 05307</p>
+    </a>
+    <a class="connect-card" href="https://www.instagram.com/vinks.crackers?stkn=MXRyamEzbG5wYTVhYw==" target="_blank" rel="noopener">
+      <div class="connect-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5.5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1.05" fill="currentColor" stroke="none"></circle></svg>
+      </div>
+      <h4>Instagram</h4>
+      <p>@vinks.crackers</p>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="fbrand">VINKS CRACKERS</div>
+  <p>Light Up Joy! · Launching today at 7:00 PM · © 2026 Vinks Crackers</p>
+</footer>
+
+<script>
+/* ===================== Countdown ===================== */
+(function(){
+  var target = new Date("2026-09-14T19:00:00+05:30").getTime();
+  var elDays = document.getElementById('cd-days');
+  var elHours = document.getElementById('cd-hours');
+  var elMins = document.getElementById('cd-mins');
+  var elSecs = document.getElementById('cd-secs');
+  var noteEl = document.getElementById('launch-note');
+  var liveBanner = document.getElementById('live-banner');
+  var countdownEl = document.getElementById('countdown');
+  var pad = function(n){ return String(n).padStart(2,'0'); };
+
+  function tick(){
+    var now = Date.now();
+    var diff = target - now;
+
+    if(diff <= 0){
+      elDays.textContent = '00'; elHours.textContent='00'; elMins.textContent='00'; elSecs.textContent='00';
+      countdownEl.style.display = 'none';
+      noteEl.style.display = 'none';
+      liveBanner.style.display = 'inline-flex';
+      clearInterval(timer);
+      launchFireworksCelebration();
+      return;
+    }
+
+    var d = Math.floor(diff / (1000*60*60*24));
+    var h = Math.floor((diff / (1000*60*60)) % 24);
+    var m = Math.floor((diff / (1000*60)) % 60);
+    var s = Math.floor((diff / 1000) % 60);
+
+    elDays.textContent = pad(d);
+    elHours.textContent = pad(h);
+    elMins.textContent = pad(m);
+    elSecs.textContent = pad(s);
+  }
+  tick();
+  var timer = setInterval(tick, 1000);
+})();
+
+/* ===================== Quotes carousel ===================== */
+(function(){
+  var slides = document.querySelectorAll('.quote-slide');
+  var dotsWrap = document.getElementById('quote-dots');
+  var idx = 0;
+
+  slides.forEach(function(_, i){
+    var dot = document.createElement('i');
+    if(i===0) dot.classList.add('active');
+    dot.addEventListener('click', function(){ show(i); });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = dotsWrap.querySelectorAll('i');
+
+  function show(i){
+    slides[idx].classList.remove('active');
+    dots[idx].classList.remove('active');
+    idx = i;
+    slides[idx].classList.add('active');
+    dots[idx].classList.add('active');
+  }
+
+  setInterval(function(){
+    show((idx + 1) % slides.length);
+  }, 4200);
+})();
+
+/* ===================== Video mute toggle ===================== */
+(function(){
+  var video = document.getElementById('promo-video');
+  var btn = document.getElementById('mute-toggle');
+  var icon = document.getElementById('mute-icon');
+
+  var iconMuted = '<polygon points="4,9 8,9 12,5 12,19 8,15 4,15" fill="currentColor" stroke="none"></polygon><line x1="16" y1="9" x2="21" y2="15"></line><line x1="21" y1="9" x2="16" y2="15"></line>';
+  var iconOn = '<polygon points="4,9 8,9 12,5 12,19 8,15 4,15" fill="currentColor" stroke="none"></polygon><path d="M16 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 6a8.5 8.5 0 0 1 0 12"></path>';
+
+  btn.addEventListener('click', function(){
+    video.muted = !video.muted;
+    if(video.muted){
+      icon.innerHTML = iconMuted;
+      btn.setAttribute('aria-label','Unmute video');
+    } else {
+      icon.innerHTML = iconOn;
+      btn.setAttribute('aria-label','Mute video');
+    }
+  });
+
+  // Browsers require a user gesture for unmuted playback — ensure autoplay stays muted.
+  video.addEventListener('canplay', function(){
+    video.play().catch(function(){ /* autoplay blocked, ignore */ });
+  });
+})();
+
+/* ===================== Scroll reveal ===================== */
+(function(){
+  var items = document.querySelectorAll('.reveal');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, {threshold:0.15});
+  items.forEach(function(el){ obs.observe(el); });
+})();
+
+/* ===================== Ambient gold sparkles in hero ===================== */
+(function(){
+  var hero = document.querySelector('.hero');
+  for(var i=0;i<18;i++){
+    var s = document.createElement('div');
+    s.className = 'sparkle';
+    var size = 2 + Math.random()*3;
+    s.style.width = size+'px';
+    s.style.height = size+'px';
+    s.style.left = (Math.random()*100)+'%';
+    s.style.bottom = (Math.random()*40)+'%';
+    s.style.animationDuration = (4 + Math.random()*5)+'s';
+    s.style.animationDelay = (Math.random()*6)+'s';
+    hero.appendChild(s);
+  }
+})();
+
+/* ===================== Fireworks canvas ===================== */
+var launchFireworksCelebration;
+(function(){
+  var canvas = document.getElementById('fireworks-canvas');
+  var ctx = canvas.getContext('2d');
+  var hero = document.querySelector('.hero');
+  var particles = [];
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    canvas.width = hero.offsetWidth;
+    canvas.height = hero.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  var palette = ['#ffd76b','#e0563f','#f4ead9','#e8c15a','#c0392b'];
+
+  function burst(x, y, count){
+    count = count || 46;
+    for(var i=0;i<count;i++){
+      var angle = (Math.PI*2) * (i/count);
+      var speed = 1.4 + Math.random()*2.6;
+      particles.push({
+        x:x, y:y,
+        vx:Math.cos(angle)*speed,
+        vy:Math.sin(angle)*speed,
+        life:1,
+        decay:0.010 + Math.random()*0.012,
+        color:palette[Math.floor(Math.random()*palette.length)],
+        size:1.4 + Math.random()*1.8
+      });
+    }
+  }
+
+  function randomBurst(){
+    if(reduceMotion) return;
+    burst(canvas.width*(0.15+Math.random()*0.7), canvas.height*(0.12+Math.random()*0.45));
+  }
+
+  function loop(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(var i=particles.length-1;i>=0;i--){
+      var p = particles[i];
+      p.x += p.vx; p.y += p.vy;
+      p.vy += 0.018; // gravity
+      p.life -= p.decay;
+      if(p.life<=0){ particles.splice(i,1); continue; }
+      ctx.globalAlpha = Math.max(p.life,0);
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  if(!reduceMotion){
+    setInterval(randomBurst, 2600);
+    setTimeout(randomBurst, 900);
+  }
+
+  launchFireworksCelebration = function(){
+    if(reduceMotion) return;
+    var count = 0;
+    var iv = setInterval(function(){
+      burst(canvas.width*(0.2+Math.random()*0.6), canvas.height*(0.15+Math.random()*0.4), 70);
+      count++;
+      if(count>6) clearInterval(iv);
+    }, 260);
+  };
+})();
+</script>
+
+</body>
+</html>
