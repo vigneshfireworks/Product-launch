@@ -267,6 +267,176 @@
     .flyer-card{grid-template-columns:1fr;}
   }
 
+  /* ---------- launch success / post-live info ---------- */
+  .launch-info{
+    padding:0 6vw 90px;
+  }
+  .launch-info-inner{
+    max-width:1000px; margin:0 auto;
+    background:linear-gradient(160deg, rgba(232,193,90,0.09), rgba(224,86,63,0.06));
+    border:1px solid rgba(232,193,90,0.3);
+    border-radius:26px;
+    padding:40px clamp(20px,4vw,48px);
+  }
+  .launch-info-head{text-align:center; margin-bottom:36px;}
+  .launch-info-head h2{font-size:clamp(22px,3vw,30px); color:var(--gold-bright); margin-bottom:10px;}
+  .launch-info-head p{color:var(--cream-dim); font-size:14.5px;}
+  .launch-info-head a.site-link{color:var(--gold); font-weight:600; word-break:break-word;}
+  .info-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-bottom:20px;
+  }
+  .info-card{
+    background:rgba(14,4,3,0.4);
+    border:1px solid rgba(232,193,90,0.18);
+    border-radius:16px;
+    padding:22px 18px;
+  }
+  .info-card .info-icon{
+    width:42px; height:42px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(140deg, rgba(232,193,90,0.22), rgba(224,86,63,0.18));
+    color:var(--gold-bright); margin-bottom:14px; font-size:18px;
+  }
+  .info-card h4{font-size:14.5px; color:var(--cream); margin-bottom:6px; font-weight:600;}
+  .info-card p{font-size:12.5px; color:var(--cream-dim); line-height:1.55;}
+  .info-card a{color:var(--gold-bright); font-weight:600;}
+  .info-note{
+    text-align:center; font-size:12.5px; color:var(--cream-dim);
+    padding-top:16px; border-top:1px dashed rgba(232,193,90,0.2);
+  }
+  .info-note strong{color:var(--gold);}
+
+  @media (max-width:900px){
+    .info-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:520px){
+    .info-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- leadership: CEO static ---------- */
+  .ceo-row{max-width:900px; margin:0 auto 46px;}
+  .ceo-card{
+    display:grid; grid-template-columns:280px 1fr; gap:0;
+    background:linear-gradient(160deg, var(--maroon-800), var(--maroon-900));
+    border:1px solid rgba(232,193,90,0.25);
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:0 26px 60px rgba(0,0,0,0.5);
+  }
+  .ceo-photo{
+    position:relative;
+    min-height:320px;
+    background:#000;
+  }
+  .ceo-photo img{width:100%; height:100%; object-fit:cover; object-position:top center;}
+  .ceo-photo::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(90deg, transparent 60%, rgba(26,8,6,0.9));
+  }
+  .ceo-info{padding:36px clamp(20px,3vw,40px); display:flex; flex-direction:column; justify-content:center; gap:14px;}
+  .role-tag{
+    display:inline-flex; width:fit-content;
+    font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--maroon-950); background:linear-gradient(120deg, var(--gold-bright), var(--gold-dim));
+    padding:5px 14px; border-radius:999px; font-weight:700;
+  }
+  .ceo-info h3{font-family:'Cinzel', serif; font-size:clamp(19px,2.4vw,25px); color:var(--cream); line-height:1.4;}
+  .ceo-info p{font-size:14px; color:var(--cream-dim); line-height:1.7;}
+  .ceo-info .signature{font-family:'Cinzel', serif; color:var(--gold); font-size:13.5px; margin-top:4px;}
+
+  @media (max-width:640px){
+    .ceo-card{grid-template-columns:1fr;}
+    .ceo-photo{min-height:260px;}
+    .ceo-photo::after{background:linear-gradient(180deg, transparent 55%, rgba(26,8,6,0.95));}
+  }
+
+  /* ---------- leadership: MD & Chairman infinite marquee ---------- */
+  .leaders-label{
+    text-align:center; font-size:13px; color:var(--cream-dim);
+    letter-spacing:0.06em; text-transform:uppercase; margin-bottom:18px;
+  }
+  .leaders-marquee{
+    overflow:hidden; width:100%;
+    -webkit-mask-image:linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    mask-image:linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+  .marquee-track{
+    display:flex; gap:24px; width:max-content;
+    animation:marqueeScroll 22s linear infinite;
+  }
+  .leaders-marquee:hover .marquee-track{animation-play-state:paused;}
+  @keyframes marqueeScroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+  .leader-card{
+    flex:0 0 auto; width:190px;
+    background:rgba(244,234,217,0.03);
+    border:1px solid rgba(232,193,90,0.18);
+    border-radius:18px;
+    padding:26px 16px;
+    text-align:center;
+  }
+  .leader-photo{
+    width:96px; height:96px; border-radius:50%;
+    margin:0 auto 14px;
+    background:linear-gradient(150deg, var(--maroon-700), var(--maroon-800));
+    border:1px solid rgba(232,193,90,0.3);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--gold-dim);
+    overflow:hidden;
+  }
+  .leader-card h4{font-size:14px; color:var(--cream); font-weight:600; margin-bottom:3px;}
+  .leader-card span{font-size:12px; color:var(--gold-dim);}
+
+  /* ---------- warehouse gallery — infinite marquee ---------- */
+  .warehouse-marquee{
+    overflow:hidden; width:100%;
+    -webkit-mask-image:linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+    mask-image:linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  }
+  .warehouse-marquee:hover .warehouse-track{ animation-play-state:paused; }
+  .warehouse-track{
+    display:flex; gap:16px; width:max-content;
+    animation:warehouseScroll 28s linear infinite;
+  }
+  @keyframes warehouseScroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+  .warehouse-item{
+    flex:0 0 auto;
+    position:relative;
+    width:280px; height:200px;
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid rgba(232,193,90,0.22);
+    display:block;
+    box-shadow:0 12px 30px rgba(0,0,0,0.4);
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  .warehouse-item:hover{ border-color:rgba(232,193,90,0.55); box-shadow:0 16px 40px rgba(0,0,0,0.55); }
+  .warehouse-item img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform .5s ease, filter .5s ease;
+    filter:saturate(1.08);
+  }
+  .warehouse-item:hover img{transform:scale(1.07);}
+  .warehouse-item::after{
+    content:attr(data-label);
+    position:absolute; left:0; right:0; bottom:0;
+    padding:28px 12px 10px;
+    font-size:12.5px; color:var(--cream);
+    background:linear-gradient(0deg, rgba(14,4,3,0.88) 0%, transparent 100%);
+    opacity:0; transition:opacity .35s ease;
+  }
+  .warehouse-item:hover::after{opacity:1;}
+
+  @media (max-width:600px){
+    .warehouse-item{ width:220px; height:160px; }
+  }
+
   /* ---------- connect / social ---------- */
   .connect-grid{
     max-width:720px; margin:0 auto;
@@ -364,6 +534,51 @@
   </div>
 </section>
 
+<!-- ============ POST-LAUNCH INFO (shown after go-live) ============ -->
+<section class="launch-info" id="launch-info" style="display:none;">
+  <div class="launch-info-inner reveal">
+    <div class="launch-info-head">
+      <h2>🎉 We're officially live!</h2>
+      <p>Our website has been successfully deployed. Visit us now at
+        <a class="site-link" href="https://products-suite.vercel.app/" target="_blank" rel="noopener">products-suite.vercel.app</a>
+      </p>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+        </div>
+        <h4>Quick, Easy Registration</h4>
+        <p>Sign up in seconds using just your phone number, log in, and start placing orders right away.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h4>24/7 Support, Always On</h4>
+        <p>Our support team is here round the clock — reach out anytime, day or night, and we'll take care of you.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+        </div>
+        <h4>Photos &amp; Videos Coming Soon</h4>
+        <p>Sample photos and videos of our products are on the way and will be updated on the site shortly.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18M3 15h18M3 3h18v18H3z"/></svg>
+        </div>
+        <h4>Bulk Orders</h4>
+        <p>Looking to order in bulk? Contact <strong style="color:var(--cream);">Vignesh</strong> directly at
+          <a href="tel:+919751005307">+91 97510 05307</a>.
+        </p>
+      </div>
+    </div>
+    <div class="info-note">Bookmark <strong>products-suite.vercel.app</strong> — new updates are rolling out regularly, so check back often.</div>
+  </div>
+</section>
+
 <!-- ============ QUOTES ============ -->
 <section>
   <div class="section-head reveal">
@@ -399,6 +614,68 @@
   <div class="quote-dots" id="quote-dots"></div>
 </section>
 
+<!-- ============ LEADERSHIP ============ -->
+<section id="leadership" style="display:none;">
+  <div class="section-head reveal">
+    <h2>The People Behind the Promise</h2>
+    <p>Vision, guidance and grit — the leadership steering us forward.</p>
+  </div>
+
+  <!-- CEO: static, standalone -->
+  <div class="ceo-row reveal">
+    <div class="ceo-card">
+      <div class="ceo-photo">
+        <img src="ceo.jpg" alt="Founder &amp; CEO">
+      </div>
+      <div class="ceo-info">
+        <span class="role-tag">Founder &amp; CEO</span>
+        <h3>"I made a promise to someone. Today, I kept it."</h3>
+        <p>A year ago, I sat with someone I deeply respect and made a quiet promise — that one day I would build something real. Not just a business, but a brand built on trust, quality and the kind of joy that lights up a family's Diwali night.</p>
+        <p style="margin-top:10px;">There were doubts. There were delays. There were long nights when the plan felt too big for the moment. But that promise stayed with me every single day — and it became the reason I kept going when everything felt uncertain.</p>
+        <p style="margin-top:10px;">Today, Vinks Crackers is live. And this launch is my answer to that promise. Every cracker in our warehouse, every page on this website, every order we pack — it's all proof that a kept word is the most powerful thing in the world.</p>
+        <p style="margin-top:10px; color:var(--gold); font-style:italic; font-size:13.5px;">To the person I made that promise to — you know who you are. This one's for you.</p>
+        <span class="signature">— Founder &amp; CEO, Vinks Crackers</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MD & Chairman: dummy photos, scrolling infinitely -->
+  <div class="leaders-label">Managing Director &amp; Chairman</div>
+  <div class="leaders-marquee reveal">
+    <div class="marquee-track">
+      <div class="leader-card">
+        <div class="leader-photo">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.24-8 5v3h16v-3c0-2.76-3.6-5-8-5Z"/></svg>
+        </div>
+        <h4>Managing Director</h4>
+        <span>Vignesh</span>
+      </div>
+      <div class="leader-card">
+        <div class="leader-photo">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.24-8 5v3h16v-3c0-2.76-3.6-5-8-5Z"/></svg>
+        </div>
+        <h4>Chairman</h4>
+        <span>Ashok</span>
+      </div>
+      <!-- duplicate set for seamless infinite loop -->
+      <div class="leader-card" aria-hidden="true">
+        <div class="leader-photo">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.24-8 5v3h16v-3c0-2.76-3.6-5-8-5Z"/></svg>
+        </div>
+        <h4>Managing Director</h4>
+        <span>Vignesh</span>
+      </div>
+      <div class="leader-card" aria-hidden="true">
+        <div class="leader-photo">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.24-8 5v3h16v-3c0-2.76-3.6-5-8-5Z"/></svg>
+        </div>
+        <h4>Chairman</h4>
+        <span>Ashok</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ VIDEO ============ -->
 <section class="video-section">
   <div class="section-head reveal">
@@ -417,6 +694,50 @@
           <line x1="21" y1="9" x2="16" y2="15"></line>
         </svg>
       </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WAREHOUSE GALLERY ============ -->
+<section id="warehouse">
+  <div class="section-head reveal">
+    <h2>Straight From Our Sivakasi Warehouse</h2>
+    <p>Real stock, real space — a peek inside where your order actually comes from.</p>
+  </div>
+  <div class="warehouse-marquee reveal">
+    <div class="warehouse-track">
+      <!-- original set -->
+      <a class="warehouse-item" href="warehouse-1.jpg" target="_blank" rel="noopener" data-label="Ready racks, freshly built">
+        <img src="warehouse-1.jpg" alt="Empty storage racks at our Sivakasi warehouse, ready to be stocked" loading="lazy">
+      </a>
+      <a class="warehouse-item" href="warehouse-2.jpg" target="_blank" rel="noopener" data-label="Stock arriving — boxes stacked and ready">
+        <img src="warehouse-2.jpg" alt="Cracker boxes stacked inside the warehouse" loading="lazy">
+      </a>
+      <a class="warehouse-item" href="warehouse-3.jpg" target="_blank" rel="noopener" data-label="Our warehouse front, Sivakasi">
+        <img src="warehouse-3.jpg" alt="Front view of our warehouse building in Sivakasi" loading="lazy">
+      </a>
+      <a class="warehouse-item" href="warehouse-4.jpg" target="_blank" rel="noopener" data-label="Blessings before we begin">
+        <img src="warehouse-4.jpg" alt="Traditional pooja setup marking the start of our warehouse" loading="lazy">
+      </a>
+      <a class="warehouse-item" href="warehouse-5.jpg" target="_blank" rel="noopener" data-label="Packed and shelf-ready">
+        <img src="warehouse-5.jpg" alt="Stacked cracker boxes ready for dispatch" loading="lazy">
+      </a>
+      <!-- duplicate set for seamless infinite loop -->
+      <a class="warehouse-item" href="warehouse-1.jpg" target="_blank" rel="noopener" data-label="Ready racks, freshly built" aria-hidden="true">
+        <img src="warehouse-1.jpg" alt="" loading="lazy">
+      </a>
+      <a class="warehouse-item" href="warehouse-2.jpg" target="_blank" rel="noopener" data-label="Stock arriving — boxes stacked and ready" aria-hidden="true">
+        <img src="warehouse-2.jpg" alt="" loading="lazy">
+      </a>
+      <a class="warehouse-item" href="warehouse-3.jpg" target="_blank" rel="noopener" data-label="Our warehouse front, Sivakasi" aria-hidden="true">
+        <img src="warehouse-3.jpg" alt="" loading="lazy">
+      </a>
+      <a class="warehouse-item" href="warehouse-4.jpg" target="_blank" rel="noopener" data-label="Blessings before we begin" aria-hidden="true">
+        <img src="warehouse-4.jpg" alt="" loading="lazy">
+      </a>
+      <a class="warehouse-item" href="warehouse-5.jpg" target="_blank" rel="noopener" data-label="Packed and shelf-ready" aria-hidden="true">
+        <img src="warehouse-5.jpg" alt="" loading="lazy">
+      </a>
     </div>
   </div>
 </section>
@@ -489,6 +810,8 @@
   var noteEl = document.getElementById('launch-note');
   var liveBanner = document.getElementById('live-banner');
   var countdownEl = document.getElementById('countdown');
+  var launchInfo = document.getElementById('launch-info');
+  var leadershipSection = document.getElementById('leadership');
   var pad = function(n){ return String(n).padStart(2,'0'); };
 
   function tick(){
@@ -500,6 +823,17 @@
       countdownEl.style.display = 'none';
       noteEl.style.display = 'none';
       liveBanner.style.display = 'inline-flex';
+      if(launchInfo){
+        launchInfo.style.display = 'block';
+        var infoReveal = launchInfo.querySelector('.reveal');
+        if(infoReveal) infoReveal.classList.add('in');
+      }
+      if(leadershipSection){
+        leadershipSection.style.display = 'block';
+        leadershipSection.querySelectorAll('.reveal').forEach(function(el){
+          setTimeout(function(){ el.classList.add('in'); }, 100);
+        });
+      }
       clearInterval(timer);
       launchFireworksCelebration();
       return;
